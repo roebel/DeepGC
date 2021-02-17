@@ -1,0 +1,18 @@
+# root directories for pretrain and finetune to be used for different people on different machines
+
+# users
+user1:
+    # machines
+    machine1:
+        # root dir names tags
+        root_dir : /pathtovctkdata
+    machin2:
+        root_dir : /pathtovctkdata2
+
+user2:
+    # machines
+    machine1:
+        # root dir names tags
+        root_dir : /pathtovctkdata
+    machin2:
+        root_dir : /pathtovctkdata2
