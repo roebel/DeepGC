@@ -165,16 +165,15 @@ if __name__ == "__main__":
     mell_mean = data_dict['mean_mell'].astype('float32')
     mell_std = data_dict['std_mell'].astype('float32')
 
-    # for gender_type in ['input', 'degender', 'autoenc', 'pretrained', 'inv_autoenc', 'inv_pretrained']:
-    for gender_type in ['input', 'degender', 'pretrained', 'inv_pretrained']:
+    for gender_type in ['original', 'degender', 'estgender', 'invgender']:
 
-        if gender_type == 'input' or gender_type == 'degender' or gender_type == 'autoenc' or gender_type == 'inv_autoenc':
+        if gender_type == 'original' or gender_type == 'degender':
             use_true_gender_id = True  # use gender_id
-        elif gender_type == 'pretrained' or gender_type == 'inv_pretrained':
+        elif gender_type == 'estgender' or gender_type == 'invgender':
             use_true_gender_id = False  # use predicted gender_id
         else:
             import sys
-            sys.exit('unknown type (input, autoenc, pretrained, degender, inv_autoenc, inv_pretrained)')
+            sys.exit('unknown type (original, estgender, degender, invgender)')
         sr = 16000
         # inference (no gradient computation)
         errs = 0
@@ -209,7 +208,7 @@ if __name__ == "__main__":
             else:
                 input_gender_id = gender_id
 
-            swap_gender = gender_type == 'inv_autoenc' or gender_type == 'inv_pretrained'
+            swap_gender = gender_type == 'invgender'
 
             # inference
             (mel_padded_out, mel_padded_post_out, speaker_logit_from_mel,
