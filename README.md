@@ -80,16 +80,16 @@ Run the inference codes to generate audio samples.
 2. Inference with models:
     * Inference with pre-trained models: 
       ```bash 
-      python inference_cpu_list_genre.py --vcmodel pathtomodels/model_vc_80ep_w/vc_weights.tf --gendermodel pathtomodels/model_genderconversion_latentdim60_ep400_w/gender_weights.tf --mellist mylist/mel_eval.list --phonelist mylist/phone_eval.list --db_root_dir pathtovctk --out genderconversion_latentdim60_weights
+      python inference_cpu_list_genre.py --vcmodel pathtomodels/model_vc_80ep_w/vc_weights.tf --gendermodel pathtomodels/model_genderconversion_latentdim60_ep400_w/gender_weights.tf --mellist mylist/mel_eval.list --phonelist mylist/phone_eval.list --db_root_dir pathtovctk --out genderconversion_latentdim60_with_weights
       ```
       where **pathtomodels** is the path to pre-trained models.
-      The folder **vc_genderconversion_latentdim60_weights** will contain the infered log-mel-spectrograms. They can be inverted using Griffin-Lim or better using WaveGlow.
+      The folder **vc_genderconversion_latentdim60_with_weights** will contain the infered log-mel-spectrograms. They can be inverted using Griffin-Lim or better using WaveGlow.
     * Inference with computed models with the training commands above: 
       ```bash 
       python inference_cpu_list_genre.py --mellist mylist/mel_eval.list --phonelist mylist/phone_eval.list --task vc --vcmodel outdir_vc_model_80ep --gendermodel outdir_genderae_latentdim60 --db_root_dir pathtovctk --out genderconversion_latentdim60 --ckpt
       ```
       **vc_genderconversion_latentdim60** will contain the infered log-mel-spectrograms. 
-3. The log-mel-spectrograms can be inverted using WaveGlow OR using with the *inference_cpu_list_genre.py* above command with --wav option (Griffin-Lim)
+3. The log-mel-spectrograms can be inverted using WaveGlow (see below) OR using with the *inference_cpu_list_genre.py* above command with --wav option (Griffin-Lim)
 
 
 ## Training Time
@@ -103,10 +103,11 @@ epoch with 400 epochs (total of 10 hours).
 
 ## WaveGlow Mel Inverter
 
-### run WaveGlow Mel Inverter on a given file
+### run WaveGlow Mel Inverter on mel files
 ```bash
-python ../waveglow_mel_inverter/waveglow_mel_inverter/resynth_mel.py -i inputfile -o outputfile
+python ../waveglow_mel_inverter/waveglow_mel_inverter/resynth_mel.py -i input_mel_files -o output_dir
 ```
+
 
 #### Get Options
 ```bash
