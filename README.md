@@ -5,7 +5,6 @@
 * tensorflow 2.2
 * librosa
 * argparse
-* soundfile
 * pysndfile
 
 ## Data
@@ -105,13 +104,13 @@ epoch with 400 epochs (total of 10 hours).
 
 ### run WaveGlow Mel Inverter on mel files
 ```bash
-python ../waveglow_mel_inverter/waveglow_mel_inverter/resynth_mel.py -i input_mel_files -o output_dir
+../waveglow_mel_inverter/waveglow_mel_inverter/resynth_mel.py -i input_mel_files -o output_dir
 ```
 
 
 #### Get Options
 ```bash
-python ../waveglow_mel_inverter/resynth_mel.py -h
+../waveglow_mel_inverter/resynth_mel.py -h
 ```
 
 ## Acknowledgements
