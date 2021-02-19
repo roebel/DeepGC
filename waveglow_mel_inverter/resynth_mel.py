@@ -3,9 +3,15 @@
 
 import os, sys
 
+# support relative imports up to the top level directory
+path_components = [ pp for pp in os.path.dirname(os.path.abspath(__file__)).split('/') if pp != "."]
+__package__ = ".".join(path_components[-2:])
+print(__package__)
+
 # silence verbose TF feedback
 if 'TF_CPP_MIN_LOG_LEVEL' not in os.environ:
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = "2"
+
 
 import numpy as np
 import tensorflow as tf
@@ -13,7 +19,7 @@ import time
 from pysndfile import sndio
 from waveglow_model.waveglow_multi_res import WaveGlow_MR
 from waveglow_model import training_utils as utils
-from fileio import iovar as iov
+from ..gender_converter.fileio import iovar as iov
 from copy import deepcopy
 
 log_to_db = 20 * np.log10(np.exp(1))
