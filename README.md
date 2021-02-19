@@ -4,7 +4,6 @@
 
 * tensorflow 2.2
 * librosa
-* argparse
 * pysndfile
 
 ## Data
