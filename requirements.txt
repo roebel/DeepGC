@@ -2,5 +2,4 @@ tensorflow==2.2
 numpy
 matplotlib
 librosa
-argparse
 pysndfile
