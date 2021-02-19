@@ -6,7 +6,6 @@ import os, sys
 # support relative imports up to the top level directory
 path_components = [ pp for pp in os.path.dirname(os.path.abspath(__file__)).split('/') if pp != "."]
 __package__ = ".".join(path_components[-2:])
-print(__package__)
 
 # silence verbose TF feedback
 if 'TF_CPP_MIN_LOG_LEVEL' not in os.environ:
@@ -17,8 +16,8 @@ import numpy as np
 import tensorflow as tf
 import time
 from pysndfile import sndio
-from waveglow_model.waveglow_multi_res import WaveGlow_MR
-from waveglow_model import training_utils as utils
+from .waveglow_model.waveglow_multi_res import WaveGlow_MR
+from .waveglow_model import training_utils as utils
 from ..gender_converter.fileio import iovar as iov
 from copy import deepcopy
 

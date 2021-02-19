@@ -9,7 +9,7 @@ import numpy as np
 import os, sys
 from copy import deepcopy
 import yaml
-from fileio import iovar
+from ...gender_converter.fileio import iovar
 
 from functools import partial
 
