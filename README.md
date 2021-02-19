@@ -2,9 +2,11 @@
 
 ## Dependencies
 
+* numpy
 * tensorflow 2.2
 * librosa
 * pysndfile
+* matplotlib
 
 ## Data
 The [VCTK dataset](https://datashare.ed.ac.uk/handle/10283/3443) using mic1 only and discarding speakers p315 and s5 (108 speakers).
