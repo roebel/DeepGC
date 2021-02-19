@@ -11,7 +11,7 @@ import numpy as np
 
 import librosa
 from librosa.util import nnls
-import soundfile
+from pysndfile import sndio
 
 from tensorflow.keras.layers import Input
 import tensorflow as tf
@@ -248,7 +248,7 @@ if __name__ == "__main__":
                 wav_output_filename = os.path.join(wav_spk_name,
                                                    gender_type + '_' + mel_filename.replace('mell.npy', 'wav'))
                 print('Griffin-Lim audio output: ' + wav_output_filename)
-                soundfile.write(wav_output_filename, data / np.max(np.abs(data)), sr)
+                sndio.write(wav_output_filename, data / np.max(np.abs(data)), rate=sr, format="wav")
 
             # # compress phone information on recognition encoder
             # compute NORMALIZED compression matrix

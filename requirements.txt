@@ -3,5 +3,4 @@ numpy
 matplotlib
 librosa
 argparse
-soundfile
 pysndfile
