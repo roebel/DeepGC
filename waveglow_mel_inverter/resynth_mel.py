@@ -3,8 +3,13 @@
 
 import os, sys
 
+placement_dir=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if placement_dir not in sys.path:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 # support relative imports up to the top level directory
 path_components = [ pp for pp in os.path.dirname(os.path.abspath(__file__)).split('/') if pp != "."]
+
 __package__ = ".".join(path_components[-2:])
 
 # silence verbose TF feedback
